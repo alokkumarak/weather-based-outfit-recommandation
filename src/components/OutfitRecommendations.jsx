@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     getOutfitRecommendation,
     weatherThemes,
@@ -8,6 +8,21 @@ import clsx from "clsx";
 
 const OutfitRecommendations = ({ weatherData }) => {
     const theme = weatherThemes[weatherData.weather[0].main];
+    const fullText = getOutfitRecommendation(weatherData);
+    const [displayedText, setDisplayedText] = useState("");
+
+    useEffect(() => {
+        setDisplayedText("");
+        let index = 0;
+        const interval = setInterval(() => {
+            setDisplayedText((prev) => prev + fullText[index]);
+            index++;
+            if (index === fullText.length) clearInterval(interval);
+        }, 30);
+
+        return () => clearInterval(interval);
+    }, [fullText]);
+
     return (
         <motion.div
             key={weatherData.dt}
@@ -29,8 +44,9 @@ const OutfitRecommendations = ({ weatherData }) => {
                 </h2>
                 <span className="text-5xl">{theme.icon}</span>
             </div>
-            <p className="text-lg sm:text-xl leading-relaxed font-medium drop-shadow-sm">
-                {getOutfitRecommendation(weatherData)}
+            <p className="text-lg sm:text-xl leading-relaxed font-medium drop-shadow-sm min-h-[3rem]">
+                {displayedText}
+                <span className="animate-pulse">|</span>
             </p>
         </motion.div>
     );
