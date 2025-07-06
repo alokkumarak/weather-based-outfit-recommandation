@@ -10,7 +10,7 @@ const themeGradients = {
     Drizzle: ["#dbeafe", "#93c5fd", "#3b82f6"],
     Mist: ["#e5e7eb", "#d1d5db", "#9ca3af"],
     Haze: ["#fef9c3", "#fef08a", "#d1d5db"],
-    default: ["#5eead4", "#4ade80", "#bef264"],
+    default: ["#444745", "#393b3a", "#2d2e2d"],
 };
 
 const WeatherBackground = ({ condition }) => {
@@ -27,7 +27,7 @@ const WeatherBackground = ({ condition }) => {
             opacity: [0, 1],
             transition: {
                 background: {
-                    duration: 5,
+                    duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut",
                 },

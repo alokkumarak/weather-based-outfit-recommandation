@@ -12,11 +12,11 @@ const CitySearch = ({ onCitySearch }) => {
 
     return (
         <div className="mb-4">
-            <h2 className="text-2xl font-semibold mb-4 text-center">
+            {/* <h2 className="text-2xl font-semibold mb-4 text-center">
                 <p className="text-gray-600">
                     Please enter a city name to get started!!
                 </p>
-            </h2>
+            </h2> */}
             <AsyncPaginate
                 placeholder="Enter city name"
                 value={city}
@@ -25,6 +25,17 @@ const CitySearch = ({ onCitySearch }) => {
                 loadOptions={fetchGeoData}
                 className="cursor-pointer "
                 styles={{
+                    control: (provided) => ({
+                        ...provided,
+                        minHeight: "56px",
+                        height: "56px",
+                        borderRadius: "5px",
+                        padding: "0 12px",
+                        backgroundColor: "#1f2937",
+                        color: "#000000",
+                        border: "1px solid #444",
+                        boxShadow: "none",
+                    }),
                     menu: (provided) => ({
                         ...provided,
                         backgroundColor: "#ffffff",
@@ -33,7 +44,7 @@ const CitySearch = ({ onCitySearch }) => {
                     option: (provided, state) => ({
                         ...provided,
                         backgroundColor: state.isFocused
-                            ? "#537575"
+                            ? "#4b5563"
                             : "#ffffff",
                         color: "#000000",
                         padding: 10,
@@ -41,11 +52,15 @@ const CitySearch = ({ onCitySearch }) => {
                     }),
                     singleValue: (provided) => ({
                         ...provided,
-                        color: "#000000",
+                        color: "#ffffff",
                     }),
                     input: (provided) => ({
                         ...provided,
-                        color: "#000000",
+                        color: "#ffffff",
+                    }),
+                    placeholder: (provided) => ({
+                        ...provided,
+                        color: "#9ca3af",
                     }),
                 }}
             />
