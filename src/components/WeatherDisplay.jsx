@@ -2,14 +2,22 @@ import React from "react";
 import Image from "next/image";
 import { weatherThemes } from "../utils/WeatherBasedThemes";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 const WeatherDisplay = ({ weatherData }) => {
     const theme = weatherThemes[weatherData.weather[0].main];
 
     return (
-        <div
+        <motion.div
+            key={weatherData.dt}
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+                duration: 0.8,
+                ease: "easeInOut",
+            }}
             className={clsx(
-                "rounded-md cursor-pointer text-white mt-5 pt-0 pb-5 pl-5 pr-5 hover:scale-105 transition-all duration-300",
+                "rounded-md cursor-pointer text-white mt-8 pt-0 pb-5 pl-5 pr-5 hover:scale-105 transition-all duration-300",
                 theme.bg
             )}
             style={{
@@ -96,7 +104,7 @@ const WeatherDisplay = ({ weatherData }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

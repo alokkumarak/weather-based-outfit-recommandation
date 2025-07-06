@@ -3,13 +3,17 @@ import {
     getOutfitRecommendation,
     weatherThemes,
 } from "../utils/WeatherBasedThemes";
-
+import { motion } from "framer-motion";
 import clsx from "clsx";
 
 const OutfitRecommendations = ({ weatherData }) => {
     const theme = weatherThemes[weatherData.weather[0].main];
     return (
-        <div
+        <motion.div
+            key={weatherData.dt}
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className={clsx(
                 "my-4 cursor-pointer rounded-md p-6 shadow-2xl max-w-2xl mx-auto text-white backdrop-blur-md bg-gradient-to-r hover:scale-105 transition-all duration-300",
                 theme.bg
@@ -28,7 +32,7 @@ const OutfitRecommendations = ({ weatherData }) => {
             <p className="text-lg sm:text-xl leading-relaxed font-medium drop-shadow-sm">
                 {getOutfitRecommendation(weatherData)}
             </p>
-        </div>
+        </motion.div>
     );
 };
 
