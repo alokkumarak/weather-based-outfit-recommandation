@@ -23,7 +23,7 @@ const CitySearch = ({ onCitySearch }) => {
                 debounceTimeout={600}
                 onChange={handleCityChange}
                 loadOptions={fetchGeoData}
-                className="cursor-pointer w-[500px]"
+                className="cursor-pointer "
                 styles={{
                     menu: (provided) => ({
                         ...provided,

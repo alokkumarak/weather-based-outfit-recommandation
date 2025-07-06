@@ -11,7 +11,7 @@ const OutfitRecommendations = ({ weatherData }) => {
     return (
         <div
             className={clsx(
-                "my-10 cursor-pointer rounded-3xl p-6 shadow-2xl max-w-2xl mx-auto text-white backdrop-blur-md bg-gradient-to-r hover:scale-105 transition-all duration-300",
+                "my-4 cursor-pointer rounded-md p-6 shadow-2xl max-w-2xl mx-auto text-white backdrop-blur-md bg-gradient-to-r hover:scale-105 transition-all duration-300",
                 theme.bg
             )}
             style={{

@@ -9,7 +9,7 @@ const WeatherDisplay = ({ weatherData }) => {
     return (
         <div
             className={clsx(
-                "w-[60%] rounded-md cursor-pointer text-white mt-5 pt-0 pb-5 pl-5 pr-5 hover:scale-105 transition-all duration-300",
+                "rounded-md cursor-pointer text-white mt-5 pt-0 pb-5 pl-5 pr-5 hover:scale-105 transition-all duration-300",
                 theme.bg
             )}
             style={{
@@ -42,7 +42,7 @@ const WeatherDisplay = ({ weatherData }) => {
                         <span className="text-left font-semibold text-xl">
                             Feels like
                         </span>
-                        <span className="text-right font-bold">
+                        <span className="text-right font-bold text-lg">
                             {Math.round(weatherData.main.feels_like)}°C
                         </span>
                     </div>
@@ -50,7 +50,7 @@ const WeatherDisplay = ({ weatherData }) => {
                         <span className="text-left font-semibold text-xl">
                             Min temp.
                         </span>
-                        <span className="text-right font-bold">
+                        <span className="text-right font-bold text-lg">
                             {Math.round(weatherData.main.temp_min)}°C
                         </span>
                     </div>
@@ -58,7 +58,7 @@ const WeatherDisplay = ({ weatherData }) => {
                         <span className="text-left font-semibold text-xl">
                             Max temp.
                         </span>
-                        <span className="text-right font-bold">
+                        <span className="text-right font-bold text-lg">
                             {Math.round(weatherData.main.temp_max)}°C
                         </span>
                     </div>
@@ -66,7 +66,7 @@ const WeatherDisplay = ({ weatherData }) => {
                         <span className="text-left font-semibold text-xl">
                             Wind
                         </span>
-                        <span className="text-right font-bold">
+                        <span className="text-right font-bold text-lg">
                             {weatherData.wind.speed} m/s
                         </span>
                     </div>
@@ -74,7 +74,7 @@ const WeatherDisplay = ({ weatherData }) => {
                         <span className="text-left font-semibold text-xl">
                             Humidity
                         </span>
-                        <span className="text-right font-bold">
+                        <span className="text-right font-bold text-lg">
                             {weatherData.main.humidity}%
                         </span>
                     </div>
@@ -82,7 +82,7 @@ const WeatherDisplay = ({ weatherData }) => {
                         <span className="text-left font-semibold text-xl">
                             Pressure
                         </span>
-                        <span className="text-right font-bold ml-2">
+                        <span className="text-right font-bold text-lg   ">
                             {weatherData.main.pressure} hPa
                         </span>
                     </div>
@@ -90,7 +90,7 @@ const WeatherDisplay = ({ weatherData }) => {
                         <span className="text-left font-semibold text-xl">
                             Coordinates
                         </span>
-                        <span className="text-right font-bold ml-2">
+                        <span className="text-right font-bold text-lg">
                             {weatherData.coord.lat}, {weatherData.coord.lon}
                         </span>
                     </div>
