@@ -22,8 +22,12 @@ const Weather = () => {
                 Weather-Based Outfit Recommender
             </h1>
             <CitySearch onCitySearch={handleCitySearch} />
-            <WeatherDisplay weatherData={weatherData} />
-            <OutfitRecommendations />
+            {weatherData && (
+                <>
+                    <WeatherDisplay weatherData={weatherData} />
+                    <OutfitRecommendations weatherData={weatherData} />
+                </>
+            )}
             <SearchHistory />
         </div>
     );
