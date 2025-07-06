@@ -41,7 +41,7 @@ const Weather = () => {
             <WeatherBackground condition={condition} />
             <div>
                 <h1 className="text-4xl font-bold mb-8 text-center ">
-                    Weather-Based Outfit Recommender
+                    Outfit Recommender 🧳👕👖
                 </h1>
                 <CitySearch onCitySearch={handleCitySearch} />
                 {weatherData ? (
