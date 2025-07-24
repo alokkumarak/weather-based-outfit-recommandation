@@ -36,7 +36,6 @@ export const weatherThemes = {
         icon: "🌤️",
     },
 };
-
 export const getOutfitRecommendation = (weather) => {
     if (!weather) return "";
 

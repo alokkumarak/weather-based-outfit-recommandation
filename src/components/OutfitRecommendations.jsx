@@ -14,20 +14,21 @@ const OutfitRecommendations = ({ weatherData }) => {
     const [isTyping, setIsTyping] = useState(true);
 
     useEffect(() => {
-        setDisplayedText("");
-        setIsTyping(true);
-        let index = 0;
-        const interval = setInterval(() => {
+    setDisplayedText("");
+    setIsTyping(true);
+    let index = 0;
+    const interval = setInterval(() => {
+        if (index < fullText.length) {
             setDisplayedText((prev) => prev + fullText[index]);
             index++;
-            if (index === fullText.length) {
-                clearInterval(interval);
-                setIsTyping(false);
-            }
-        }, 25);
+        } else {
+            clearInterval(interval);
+            setIsTyping(false);
+        }
+    }, 25);
 
-        return () => clearInterval(interval);
-    }, [fullText]);
+    return () => clearInterval(interval);
+}, [fullText]);
 
     const getWeatherIcon = () => {
         const condition = weatherData.weather[0].main.toLowerCase();
@@ -176,7 +177,7 @@ const OutfitRecommendations = ({ weatherData }) => {
                         
                         <div className="relative z-10">
                             <p className="text-xl leading-relaxed font-medium text-white min-h-[4rem]">
-                                {displayedText}
+                                {displayedText.slice(0, -9)}
                                 <AnimatePresence>
                                     {isTyping && (
                                         <motion.span
@@ -193,7 +194,6 @@ const OutfitRecommendations = ({ weatherData }) => {
                             </p>
                         </div>
 
-                     
                         <motion.div
                             className="mt-6 flex items-center justify-center gap-4"
                             initial={{ opacity: 0 }}
